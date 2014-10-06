@@ -1,0 +1,20 @@
+{
+  "name": "rss",
+  "version": "0.0.0",
+  "description": "pull rss",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rss"
+  ],
+  "author": "Bobby Arnold <rra@warpmail.net>",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "xml2json": "~0.5.1",
+    "prettyjson": "~1.0.0",
+    "html-strings": "0.0.1",
+    "cheerio": "~0.17.0"
+  }
+}
