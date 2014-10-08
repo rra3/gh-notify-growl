@@ -6,7 +6,7 @@ var conf = require('./config.json')
   , GitHubEntry = require('./lib/githubrss')
 
 
-const url = conf.url
+var url = conf.url
 
 
 request.get(url, function(err, response, body) {
