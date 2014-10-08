@@ -15,6 +15,7 @@
     "xml2json": "~0.5.1",
     "prettyjson": "~1.0.0",
     "html-strings": "0.0.1",
-    "cheerio": "~0.17.0"
+    "cheerio": "~0.17.0",
+    "node-github": "0.0.3"
   }
 }

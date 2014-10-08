@@ -3,7 +3,7 @@
 var conf = require('./config.json')
   , request = require('request')
   , xmlParser = require('xml2json')
-  , GitHubEntry = require('./lib/GitHubEntry')
+  , GitHubEntry = require('./lib/githubrss')
 
 
 const url = conf.url
@@ -18,7 +18,7 @@ request.get(url, function(err, response, body) {
   entries.forEach(function(entry) {
     gh = new GitHubEntry(entry)
     if (gh.parseEntry().hasComment) {
-      // console.log('%s: %s', gh.author, gh.comment)
+      console.log('%s: %s', gh.author, gh.comment)
     }
   });
 });
