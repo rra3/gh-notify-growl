@@ -4,11 +4,13 @@ var conf = require('./config.json')
   , request = require('request')
   , xmlParser = require('xml2json')
   , GitHubEntry = require('./lib/githubrss')
-  , GitHubJS = require('./lib/github.js')
+  , GitHubJS = require('./lib/github')
+  , GHClient = require('./lib/client')
 
 
 var url = conf.url
-var ghjs = new GitHubJS()
+var ghjs = new GitHubJS(new GHClient(conf.token))
+
 
 ghjs.getTeamRepos(function(err, repos) {
 
