@@ -6,8 +6,9 @@ var conf = require('./config.json')
   , GitHubEntry = require('./lib/githubrss')
   , GitHubJS = require('./lib/github')
   , GHClient = require('./lib/client')
-  , growl = require('growl')
+  // , growl = require('growl')
   , RssData = require('./lib/db.js')
+  , spawn = require('child_process').spawn
 
 
 var db = new RssData()
@@ -43,6 +44,14 @@ ghjs.getTeamRepos(function(err, repos) {
       db.idExists(id, function(err,bThere) {
         if (err) {  throw err }
         if(!bThere) {
+          if (gh.hasComment) {
+            spawn("/usr/local/bin/growlnotify", [ '-s', '-m', 
+            gh.comment, '--url', gh.link, '-a', 'GitHub'])
+          } else {
+            spawn("/usr/local/bin/growlnotify", [ '-s', '-m', 
+            gh.title, '--url', gh.link, '-a', 'GitHub'])
+          }
+
           db.insert(id)
         } else {
           console.log("Already exists: %s", id)
