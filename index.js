@@ -46,7 +46,7 @@ ghjs.getTeamRepos(function(err, repos) {
         if(!bThere) {
           if (gh.hasComment) {
             spawn("/usr/local/bin/growlnotify", [ '-s', '-m', 
-            gh.comment, '--url', gh.link, '-a', 'GitHub'])
+            gh.title + "\n--------------------------\n" + gh.comment, '--url', gh.link, '-a', 'GitHub'])
           } else {
             spawn("/usr/local/bin/growlnotify", [ '-s', '-m', 
             gh.title, '--url', gh.link, '-a', 'GitHub'])
